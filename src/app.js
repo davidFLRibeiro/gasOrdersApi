@@ -16,7 +16,7 @@ app.use(cors());
 app.use('/clients', ordersRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello, world!');
+  res.send('Hello, this is clietsn app!');
 });
 
 app.use(function errorHandler(error, req, res, next) {
