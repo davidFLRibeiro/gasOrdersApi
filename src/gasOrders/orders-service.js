@@ -4,7 +4,7 @@ const ordersService = {
   },
 
   getAllClients(knex) {
-    return knex('clients').distictOn('phone_number');
+    return knex('clients');
   },
 
   insertOrders(knex, newOrder) {
