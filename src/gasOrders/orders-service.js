@@ -4,7 +4,7 @@ const ordersService = {
   },
 
   getAllClients(knex) {
-    return knex('clients');
+    return knex('clients').distinct(knex.raw('ON (column) phone_number'));
   },
 
   insertOrders(knex, newOrder) {
