@@ -55,7 +55,17 @@ ordersRouter
       .catch(next);
   });
 
+ordersRouter.route('/clientid').get((req, res, next) => {
+  ordersService
+    .getAllClients(req.app.get('db'))
+    .then((orders) => {
+      res.json(orders);
+    })
+    .catch(next);
+});
+
 ordersRouter
+
   .route('/:order_id')
   .all((req, res, next) => {
     ordersService

@@ -3,6 +3,10 @@ const ordersService = {
     return knex.select('*').from('clients');
   },
 
+  getAllClients(knex) {
+    return knex.select('*').distictOn('phone_number').from('clients');
+  },
+
   insertOrders(knex, newOrder) {
     return knex
       .insert(newOrder)
