@@ -56,9 +56,11 @@ ordersRouter
   });
 
 ordersRouter.route('/clientid').get((req, res, next) => {
+  console.log('intering here');
   ordersService
     .getAllClients(req.app.get('db'))
     .then((orders) => {
+      console.log('orders return', orders);
       res.json(orders);
     })
     .catch(next);
