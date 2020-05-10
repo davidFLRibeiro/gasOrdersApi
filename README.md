@@ -1,5 +1,8 @@
 GAS DELIVERS API
 
+deploy in Heroku:
+https://morning-mesa-93259.herokuapp.com/clients
+
 In this API we have an Orders router with 7 methods:
 
 .get: returns all Orders.
@@ -31,8 +34,6 @@ ex: given no clients,
 client exist,
 
 if have 1 client
-
-deploy in Heroku.
 
 used technology:
 
