@@ -1,26 +1,31 @@
-# Express Boilerplate!
+GAS DELIVERS API
 
-This is a boilerplate project used for starting new projects!
+In this API we have an Orders router with 7 methods:
 
-## Set up
+.get: returns all Orders.
+.post: insert Orders.
+.all: give back by ID.
+.patch: Orders update.
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+In OrdersService we have queries:
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+-getAllOrders: returns all Orders.
+-getAllClients: Return each customer's phone number only once so that a list of customers can be created using the phone number.
 
-## Scripts
+-getById: returns Orders by ID.
+-Delete: Delete Order.
+-UpdateOrder: Update Orders.
 
-Start the application `npm start`
+Super test tests:
+Some tests were done to make sure the cases passed.
+ex: given no clients,
+client exist,
+if have 1 client
 
-Start nodemon for the application `npm run dev`
+deploy in Heroku:
 
-Run the tests `npm test`
+used technology:
 
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+Node,
+Express,
+JavaScript,
