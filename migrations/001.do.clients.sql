@@ -6,6 +6,6 @@ CREATE TABLE clients (
     post_cod INTEGER  NULL,
     bottle_type varchar,
     date_deliver TIMESTAMP,
-    observations varchar,
+    observations varchar NULL,
     delivered boolean 
 )
