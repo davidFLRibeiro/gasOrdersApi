@@ -4,6 +4,7 @@ const path = require('path');
 const ordersRouter = express.Router();
 const jsonParser = express.json();
 
+//this method is to return all orders.
 ordersRouter
   .route('/')
   .get((req, res, next) => {
@@ -15,6 +16,7 @@ ordersRouter
       .catch(next);
   })
 
+  //method to post an order
   .post(jsonParser, (req, res, next) => {
     const {
       phone_number,
@@ -37,7 +39,7 @@ ordersRouter
       observations,
       delivered,
     };
-
+    //If a value in the body is missing return error message
     for (const [key, value] of Object.entries(newOrder))
       if (value == null) {
         return res.status(400).json({
@@ -55,19 +57,18 @@ ordersRouter
       .catch(next);
   });
 
+//This method it´s to return all clients
 ordersRouter.route('/clientid').get((req, res, next) => {
-  console.log('intering here');
   ordersService
     .getAllClients(req.app.get('db'))
     .then((orders) => {
-      console.log('orders return', orders);
       res.json(orders);
     })
     .catch(next);
 });
 
 ordersRouter
-
+  //In this method it to return by ID where we can get client, delete client and update client.
   .route('/:order_id')
   .all((req, res, next) => {
     ordersService
@@ -94,6 +95,7 @@ ordersRouter
       })
       .catch(next);
   })
+  //Update the Orders
   .patch(jsonParser, (req, res, next) => {
     const {
       phone_number,

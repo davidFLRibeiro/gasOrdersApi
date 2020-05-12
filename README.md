@@ -3,15 +3,13 @@ GAS DELIVERS API
 deploy in Heroku:
 https://morning-mesa-93259.herokuapp.com/clients
 
-In this API we have an Orders router with 7 methods:
+GET /client In this API we have an Orders router with 7 methods:
 
-.get: returns all Orders.
+POST /client at this endpoint we create the orders
 
-.post: insert Orders.
+GET / client:id at this endpoint, we get a certain order
 
-.all: give back by ID.
-
-.patch: Orders update.
+PATCH /client:id at this endpoint, we can make necessary changes to the order
 
 In OrdersService we have queries:
 
