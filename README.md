@@ -1,39 +1,177 @@
-GAS DELIVERS API
+## GAS DELIVERS API
 
-deploy in Heroku:
-https://morning-mesa-93259.herokuapp.com/clients
+- Deploy in Heroku:
+  https://morning-mesa-93259.herokuapp.com/clients
 
-GET /client In this API we have an Orders router with 7 methods:
+## Client Historic
 
-POST /client at this endpoint we create the orders
+- URL
 
-GET / client:id at this endpoint, we get a certain order
+/clients/:order_id
 
-PATCH /client:id at this endpoint, we can make necessary changes to the order
+- Method:
 
-In OrdersService we have queries:
+GET
 
--getAllOrders: returns all Orders.
+- URL Params
 
--getAllClients: Return each customer's phone number only once so that a list of customers can be created using the phone number.
+id=[integer]
 
--getById: returns Orders by ID.
+- Required:
 
--Delete: Delete Order.
+id=[integer]
 
--UpdateOrder: Update Orders.
+- Data Params
 
-Super test tests:
+None
+
+- Success Response:
+
+Code: 200
+Content: { id : 1, name : "David Figueiredo Leite Ribeiro" }
+Error Response:
+
+Code: 404 NOT FOUND
+Content: { error : "order doesnt exist" }
+OR
+
+- Sample Call:
+
+fetch(`${config.API_ENDPOINT}clients/clientid`).then((response) =>
+response.json()
+
+- -
+- -
+
+## Client List
+
+- URL
+
+/clients/
+
+- Method:
+
+GET
+
+- URL Params
+
+None
+
+- Data Params
+
+None
+
+- Sample Call:
+
+fetch(`${config.API_ENDPOINT}clients/`).then((response) =>
+response.json()
+
+- -
+- -
+
+## Add Order
+
+- URL
+
+/clients/
+
+- Method:
+
+POST
+
+- URL Params
+
+None
+
+- Required:
+
+None
+
+- Data Params
+
+None
+
+- Success Response:
+
+Code: 200
+Content: { id : 1, name : "David Figueiredo Leite Ribeiro" }
+
+- Sample Call:
+
+fetch(`${config.API_ENDPOINT}clients/`).then((response) =>
+response.json()
+
+- -
+- -
+
+## Edit Order
+
+- URL
+
+/clients/:order_id
+
+- Method:
+
+PATCH
+
+- URL Params
+
+id
+
+- Required:
+
+id=[integer]
+
+- Data Params
+
+None
+
+- Success Response:
+
+Code: 204
+
+- Error Response:
+
+Code: 400 BAD REQUEST
+Content: { error : "Request body must contain fields" }
+OR
+
+- Sample Call:
+
+fetch(`${config.API_ENDPOINT}clients/clientid`).then((response) =>
+response.json()
+
+- -
+- -
+
+## OrdersService queries:
+
+- getAllOrders: returns all Orders.
+
+- getAllClients: Return each customer's phone number only once so that a list of customers can be created using the phone number.
+
+- getById: returns Orders by ID.
+
+- Delete: Delete Order.
+
+- UpdateOrder: Update Orders.
+
+- -
+- -
+
+## Super test tests:
 
 Some tests were done to make sure the cases passed.
 
-ex: given no clients,
+ex:
 
-client exist,
+- given no clients,
 
-if have 1 client
+- client exist,
 
-used technology:
+- if have 1 client
+
+- used technology:
 
 Node,
 Express,
